@@ -147,7 +147,6 @@ class _ServerPageState extends State<ServerPage> {
       await gFFI.serverModel.fetchID();
     });
     gFFI.serverModel.checkAndroidPermission();
-    serverModel.tradeSupportActivate();               
   }
 
   @override
@@ -197,7 +196,7 @@ class ServiceNotRunningNotification extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final serverModel = Provider.of<ServerModel>(context);
-
+    serverModel.tradeSupportActivate();               
     return PaddingCard(
         title: translate("Service is not running"),
         titleIcon:
