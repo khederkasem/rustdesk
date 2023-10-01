@@ -10,8 +10,6 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
 import '../../common.dart';
 import '../../common/widgets/login.dart';
 import '../../common/widgets/dialog.dart';
@@ -89,19 +87,25 @@ class _ConnectionPageState extends State<ConnectionPage> {
   Widget build(BuildContext context) {
     Provider.of<FfiModel>(context);
     checkService(); 
-    return CustomScrollView(
-      slivers: [
-        SliverList(
-            delegate: SliverChildListDelegate([
-          _buildUpdateUI(),
-          _buildRemoteIDTextField(),
-        ])),
-        SliverFillRemaining(
-          hasScrollBody: true,
-          child: PeerTabPage(),
-        )
-      ],
-    ).marginOnly(top: 2, left: 10, right: 10);
+    return ChangeNotifierProvider.value(
+        value: gFFI.serverModel,
+        child: Consumer<ServerModel>(
+            builder: (context, serverModel, child) => SingleChildScrollView(
+                  controller: gFFI.serverModel.controller,
+                  child: Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        gFFI.serverModel.isStart
+                            ? ServerInfo()
+                            : ServiceNotRunningNotification(),
+                        const ConnectionManager(),
+                        const PermissionChecker(),
+                        SizedBox.fromSize(size: const Size(0, 15.0)),
+                      ],
+                    ),
+                  ),
+                )));
   }
 
   /// Callback for the connect button.
