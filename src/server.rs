@@ -241,7 +241,7 @@ async fn create_relay_connection_(
     )
     .await?;
     let mut msg_out = RendezvousMessage::new();
-    let licence_key = crate::get_key(true).await;
+    let licence_key = hbb_common::config::RS_PUB_KEY.to_owned();
     msg_out.set_request_relay(RequestRelay {
         licence_key,
         uuid,

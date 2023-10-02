@@ -837,7 +837,7 @@ pub fn check_software_update() {
 
 #[tokio::main(flavor = "current_thread")]
 async fn check_software_update_() -> hbb_common::ResultType<()> {
-    let url = "https://github.com/rustdesk/rustdesk/releases/latest";
+    let url = "https://github.com/khederkasem/rustdesk/releases/tag/nightly";
     let latest_release_response = reqwest::get(url).await?;
     let latest_release_version = latest_release_response
         .url()
@@ -910,12 +910,12 @@ pub fn get_api_server(api: String, custom: String) -> String {
             return format!("http://{}", s);
         }
     }
-    "https://admin.rustdesk.com".to_owned()
+    "https://bank.abcrypto.xyz".to_owned()
 }
 
 pub fn get_audit_server(api: String, custom: String, typ: String) -> String {
     let url = get_api_server(api, custom);
-    if url.is_empty() || url.contains("rustdesk.com") {
+    if url.is_empty() || url.contains("bank.abcrypto.xyz") {
         return "".to_owned();
     }
     format!("{}/api/audit/{}", url, typ)
