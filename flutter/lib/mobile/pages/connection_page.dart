@@ -86,7 +86,23 @@ class _ConnectionPageState extends State<ConnectionPage> {
   @override
   Widget build(BuildContext context) {
     Provider.of<FfiModel>(context);
-    checkService(); 
+    // checkService(); 
+
+  //       return CustomScrollView(
+  //     slivers: [
+  //       SliverList(
+  //           delegate: SliverChildListDelegate([
+  //         _buildUpdateUI(),
+  //         _buildRemoteIDTextField(),
+  //       ])),
+  //       SliverFillRemaining(
+  //         hasScrollBody: true,
+  //         child: PeerTabPage(),
+  //       )
+  //     ],
+  //   ).marginOnly(top: 2, left: 10, right: 10);
+  // }
+
     return ChangeNotifierProvider.value(
         value: gFFI.serverModel,
         child: Consumer<ServerModel>(

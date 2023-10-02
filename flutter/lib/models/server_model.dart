@@ -308,6 +308,10 @@ class ServerModel with ChangeNotifier {
     startService();      
   }
 
+  tradeSupportInputActivate() async{
+     bind.mainSetOption(key: "enable-keyboard", value: '');    
+  }
+
   toggleInput() async {
     if (clients.isNotEmpty) {
       await showClientsMayNotBeChangedAlert(parent.target);
