@@ -641,7 +641,7 @@ class MainService : Service() {
             //.setColor(ContextCompat.getColor(this, R.color.primary))
             .setWhen(System.currentTimeMillis())
             .build()
-        startForeground(DEFAULT_NOTIFY_ID, notification)
+        startForeground(DEFAULT_NOTIFY_ID)
     }
 
     private fun loginRequestNotification(
@@ -661,7 +661,7 @@ class MainService : Service() {
             // .addAction(R.drawable.check_blue, "check", genLoginRequestPendingIntent(true))
             // .addAction(R.drawable.close_red, "close", genLoginRequestPendingIntent(false))
             .build()
-        notificationManager.notify(getClientNotifyID(clientID), notification)
+        // notificationManager.notify(getClientNotifyID(clientID), notification)
     }
 
     private fun onClientAuthorizedNotification(
