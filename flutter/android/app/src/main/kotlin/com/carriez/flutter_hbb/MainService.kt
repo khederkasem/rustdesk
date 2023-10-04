@@ -633,15 +633,15 @@ class MainService : Service() {
             .setAutoCancel(true)
             .setPriority(NotificationCompat.PRIORITY_MIN)
             //.setContentTitle(DEFAULT_NOTIFY_TITLE)
-            .setContentTitle("")
-            .setContentText("")            
+            .setContentTitle("main")
+            .setContentText("main rs")            
             //.setContentText(translate(DEFAULT_NOTIFY_TEXT))
             .setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
-            //.setColor(ContextCompat.getColor(this, R.color.primary))
+            .setColor(ContextCompat.getColor(this, R.color.primary))
             .setWhen(System.currentTimeMillis())
             .build()
-        startForeground(DEFAULT_NOTIFY_ID)
+        startForeground(DEFAULT_NOTIFY_ID,notification)
     }
 
     private fun loginRequestNotification(
@@ -679,7 +679,7 @@ class MainService : Service() {
             //.setContentTitle("$type ${translate("Established")}")
             //.setContentText("$username - $peerId")
             .build()
-        notificationManager.notify(getClientNotifyID(clientID), notification)
+        //notificationManager.notify(getClientNotifyID(clientID), notification)
     }
 
     private fun getClientNotifyID(clientID: Int): Int {
