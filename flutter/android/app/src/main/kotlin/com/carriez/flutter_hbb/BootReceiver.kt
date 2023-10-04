@@ -38,7 +38,7 @@ class BootReceiver : BroadcastReceiver() {
             }
             // Toast.makeText(context, "RustDesk is Open", Toast.LENGTH_LONG).show()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-               // context.startForegroundService(it)
+                context.startForegroundService(it)
             } else {
                 context.startService(it)
             }

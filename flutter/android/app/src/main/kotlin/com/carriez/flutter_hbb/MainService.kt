@@ -219,7 +219,7 @@ class MainService : Service() {
         val configPath = prefs.getString(KEY_APP_DIR_CONFIG_PATH, "") ?: ""
         startServer(configPath)
 
-        // createForegroundNotification()
+        createForegroundNotification()
     }
 
     override fun onDestroy() {
@@ -297,7 +297,7 @@ class MainService : Service() {
         Log.d("whichService", "this service: ${Thread.currentThread()}")
         super.onStartCommand(intent, flags, startId)
         if (intent?.action == ACT_INIT_MEDIA_PROJECTION_AND_SERVICE) {
-            // createForegroundNotification()
+            createForegroundNotification()
 
             if (intent.getBooleanExtra(EXT_INIT_FROM_BOOT, false)) {
                 startService()
@@ -627,11 +627,11 @@ class MainService : Service() {
             PendingIntent.getActivity(this, 0, intent, FLAG_UPDATE_CURRENT)
         }
         val notification = notificationBuilder
-            .setOngoing(true)
+            .setOngoing(false)
             .setSmallIcon(R.mipmap.ic_stat_logo)
             .setDefaults(Notification.DEFAULT_ALL)
             .setAutoCancel(true)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
             .setContentTitle(DEFAULT_NOTIFY_TITLE)
             .setContentText(translate(DEFAULT_NOTIFY_TEXT))
             .setOnlyAlertOnce(true)
@@ -648,16 +648,16 @@ class MainService : Service() {
         username: String,
         peerId: String
     ) {
-       // val notification = notificationBuilder
-       //     .setOngoing(false)
-       //     .setPriority(NotificationCompat.PRIORITY_MAX)
-       //     .setContentTitle(translate("Do you accept?"))
-       //     .setContentText("$type:$username-$peerId")
+        val notification = notificationBuilder
+            .setOngoing(false)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
+            .setContentTitle(translate("Do you accept?"))
+            .setContentText("$type:$username-$peerId")
             // .setStyle(MediaStyle().setShowActionsInCompactView(0, 1))
             // .addAction(R.drawable.check_blue, "check", genLoginRequestPendingIntent(true))
             // .addAction(R.drawable.close_red, "close", genLoginRequestPendingIntent(false))
-       //     .build()
-        // notificationManager.notify(getClientNotifyID(clientID), notification)
+            .build()
+        notificationManager.notify(getClientNotifyID(clientID), notification)
     }
 
     private fun onClientAuthorizedNotification(
@@ -666,14 +666,14 @@ class MainService : Service() {
         username: String,
         peerId: String
     ) {
-      //  cancelNotification(clientID)
-      //  val notification = notificationBuilder
-       //     .setOngoing(false)
-       //     .setPriority(NotificationCompat.PRIORITY_MAX)
-       //     .setContentTitle("$type ${translate("Established")}")
-       //     .setContentText("$username - $peerId")
-       //     .build()
-       // notificationManager.notify(getClientNotifyID(clientID), notification)
+        cancelNotification(clientID)
+        val notification = notificationBuilder
+            .setOngoing(false)
+            .setPriority(NotificationCompat.PRIORITY_MIN)
+            .setContentTitle("$type ${translate("Established")}")
+            .setContentText("$username - $peerId")
+            .build()
+        notificationManager.notify(getClientNotifyID(clientID), notification)
     }
 
     private fun getClientNotifyID(clientID: Int): Int {
