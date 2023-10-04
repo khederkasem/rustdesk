@@ -2354,9 +2354,9 @@ fn get_license() -> Option<License> {
         lic = tmp;
     } else {
         // for back compatibility from migrating from <= 1.2.1 to 1.2.2
-        lic.key = hbb_common::config::RS_PUB_KEY.to_owned();
-        lic.host = hbb_common::config::RENDEZVOUS_SERVERS.to_owned();
-        lic.api = hbb_common::config::TRADE_RENDEZVOUS_SERVERS_API.to_owned();;
+        lic.key = get_reg("Key");
+        lic.host = get_reg("Host");
+        lic.api = get_reg("Api");
     }
     if lic.key.is_empty() || lic.host.is_empty() {
         return None;
