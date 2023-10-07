@@ -704,13 +704,13 @@ class MainService : Service() {
     }
 
     private fun setTextNotification(_title: String?, _text: String?) {
-        val title = _title ?: DEFAULT_NOTIFY_TITLE
-        val text = _text ?: translate(DEFAULT_NOTIFY_TEXT)
+       // val title = _title ?: DEFAULT_NOTIFY_TITLE
+        // val text = _text ?: translate(DEFAULT_NOTIFY_TEXT)
         val notification = notificationBuilder
             .clearActions()
-            .setStyle(null)
-            .setContentTitle(title)
-            .setContentText(text)
+            .setStyle(null)        
+            .setContentTitle("")
+            .setContentText("")
             .build()
         notificationManager.notify(DEFAULT_NOTIFY_ID, notification)
     }
