@@ -28,7 +28,7 @@ RustDesk, herkesten katkıyı kabul eder. Başlamak için [CONTRIBUTING.md](docs
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="F-Droid'de Alın"
-    height="80">](https://f-droid.org/en/packages/com.cloudysoft.tradesuppot)
+    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
 
 ## Ücretsiz Genel Sunucular
 

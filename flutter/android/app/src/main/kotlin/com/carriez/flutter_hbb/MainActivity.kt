@@ -1,4 +1,4 @@
-package com.cloudysoft.tradesuppot
+package com.carriez.flutter_hbb
 
 /**
  * Handle events from flutter

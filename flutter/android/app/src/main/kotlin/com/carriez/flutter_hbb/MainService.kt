@@ -1,4 +1,4 @@
-package com.cloudysoft.tradesuppot
+package com.carriez.flutter_hbb
 
 /**
  * Capture screen,get video and audio,send to rust.

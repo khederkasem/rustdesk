@@ -27,7 +27,7 @@ RustDesk zaprasza do współpracy każdego. Zobacz [`docs/CONTRIBUTING-PL.md`](C
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
     alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/en/packages/com.cloudysoft.tradesuppot)
+    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
 
 ## Darmowe Serwery Publiczne
 
