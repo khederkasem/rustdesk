@@ -42,7 +42,7 @@ pub const CONFIG_OPTION_ALLOW_LINUX_HEADLESS: &str = "allow-linux-headless";
 
 #[cfg(target_os = "macos")]
 lazy_static::lazy_static! {
-    pub static ref ORG: Arc<RwLock<String>> = Arc::new(RwLock::new("com.carriez".to_owned()));
+    pub static ref ORG: Arc<RwLock<String>> = Arc::new(RwLock::new("com.cloudysoft".to_owned()));
 }
 
 type Size = (i32, i32, i32, i32);

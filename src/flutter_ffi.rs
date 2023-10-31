@@ -1809,7 +1809,7 @@ pub mod server_side {
     use crate::start_server;
 
     #[no_mangle]
-    pub unsafe extern "system" fn Java_com_carriez_flutter_1hbb_MainService_startServer(
+    pub unsafe extern "system" fn Java_com_cloudysoft_flutter_1hbb_MainService_startServer(
         env: JNIEnv,
         _class: JClass,
         app_dir: JString,
@@ -1823,7 +1823,7 @@ pub mod server_side {
     }
 
     #[no_mangle]
-    pub unsafe extern "system" fn Java_com_carriez_flutter_1hbb_MainService_startService(
+    pub unsafe extern "system" fn Java_com_cloudysoft_flutter_1hbb_MainService_startService(
         _env: JNIEnv,
         _class: JClass,
     ) {
@@ -1833,7 +1833,7 @@ pub mod server_side {
     }
 
     #[no_mangle]
-    pub unsafe extern "system" fn Java_com_carriez_flutter_1hbb_MainService_translateLocale(
+    pub unsafe extern "system" fn Java_com_cloudysoft_flutter_1hbb_MainService_translateLocale(
         env: JNIEnv,
         _class: JClass,
         locale: JString,
@@ -1852,7 +1852,7 @@ pub mod server_side {
     }
 
     #[no_mangle]
-    pub unsafe extern "system" fn Java_com_carriez_flutter_1hbb_MainService_refreshScreen(
+    pub unsafe extern "system" fn Java_com_cloudysoft_flutter_1hbb_MainService_refreshScreen(
         _env: JNIEnv,
         _class: JClass,
     ) {

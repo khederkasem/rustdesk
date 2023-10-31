@@ -1,4 +1,4 @@
-package com.carriez.flutter_hbb
+package com.cloudysoft.flutter_hbb
 
 /**
  * Capture screen,get video and audio,send to rust.
