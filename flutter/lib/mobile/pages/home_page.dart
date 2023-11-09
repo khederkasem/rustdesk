@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       //_pages.addAll([ChatPage(type: ChatPageType.mobileMain), ServerPage()]);
 
     }
-    // _pages.add(SettingsPage());
+     _pages.add(SettingsPage());
   }
 
   @override

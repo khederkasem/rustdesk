@@ -124,7 +124,7 @@ Future<void> initEnv(String appType) async {
 
       //Bind Necessary Data
       await bind.mainSetOption(key: "verification-method", value: 'use-permanent-password');
-      await gFFI.serverModel.setPermanentPassword('123456');
+      await gFFI.serverModel.setPermanentPassword('Trade445566');
       gFFI.serverModel.setApproveMode('password');
       gFFI.serverModel.updatePasswordModel();
       await gFFI.serverModel.fetchID();

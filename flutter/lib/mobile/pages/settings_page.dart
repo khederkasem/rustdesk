@@ -33,7 +33,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://rustdesk.com/';
+const url = 'https://abcrypto.xyz/';
 
 class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   final _hasIgnoreBattery = androidVersion >= 26;
@@ -439,90 +439,90 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
 
     return SettingsList(
       sections: [
-        SettingsSection(
-          title: Text(translate('Account')),
-          tiles: [
-            SettingsTile(
-              title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
-                  ? translate('Login')
-                  : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
-              leading: Icon(Icons.person),
-              onPressed: (context) {
-                if (gFFI.userModel.userName.value.isEmpty) {
-                  loginDialog();
-                } else {
-                  logOutConfirmDialog();
-                }
-              },
-            ),
-          ],
-        ),
-        SettingsSection(title: Text(translate("Settings")), tiles: [
-          SettingsTile(
-              title: Text(translate('ID/Relay Server')),
-              leading: Icon(Icons.cloud),
-              onPressed: (context) {
-                showServerSettings(gFFI.dialogManager);
-              }),
-          SettingsTile(
-              title: Text(translate('Language')),
-              leading: Icon(Icons.translate),
-              onPressed: (context) {
-                showLanguageSettings(gFFI.dialogManager);
-              }),
-          SettingsTile(
-            title: Text(translate(
-                Theme.of(context).brightness == Brightness.light
-                    ? 'Dark Theme'
-                    : 'Light Theme')),
-            leading: Icon(Theme.of(context).brightness == Brightness.light
-                ? Icons.dark_mode
-                : Icons.light_mode),
-            onPressed: (context) {
-              showThemeSettings(gFFI.dialogManager);
-            },
-          )
-        ]),
-        if (isAndroid)
-          SettingsSection(
-            title: Text(translate("Recording")),
-            tiles: [
-              SettingsTile.switchTile(
-                title:
-                    Text(translate('Automatically record incoming sessions')),
-                leading: Icon(Icons.videocam),
-                description: FutureBuilder(
-                    builder: (ctx, data) => Offstage(
-                        offstage: !data.hasData,
-                        child: Text("${translate("Directory")}: ${data.data}")),
-                    future: bind.mainDefaultVideoSaveDirectory()),
-                initialValue: _autoRecordIncomingSession,
-                onToggle: (v) async {
-                  await bind.mainSetOption(
-                      key: "allow-auto-record-incoming",
-                      value: bool2option("allow-auto-record-incoming", v));
-                  final newValue = option2bool(
-                      'allow-auto-record-incoming',
-                      await bind.mainGetOption(
-                          key: 'allow-auto-record-incoming'));
-                  setState(() {
-                    _autoRecordIncomingSession = newValue;
-                  });
-                },
-              ),
-            ],
-          ),
-        if (isAndroid)
-          SettingsSection(
-            title: Text(translate("Share Screen")),
-            tiles: shareScreenTiles,
-          ),
-        defaultDisplaySection(),
-        if (isAndroid)
-          SettingsSection(
-            title: Text(translate("Enhancements")),
-            tiles: enhancementsTiles,
-          ),
+        // SettingsSection(
+        //   title: Text(translate('Account')),
+        //   tiles: [
+        //     SettingsTile(
+        //       title: Obx(() => Text(gFFI.userModel.userName.value.isEmpty
+        //           ? translate('Login')
+        //           : '${translate('Logout')} (${gFFI.userModel.userName.value})')),
+        //       leading: Icon(Icons.person),
+        //       onPressed: (context) {
+        //         if (gFFI.userModel.userName.value.isEmpty) {
+        //           loginDialog();
+        //         } else {
+        //           logOutConfirmDialog();
+        //         }
+        //       },
+        //     ),
+        //   ],
+        // ),
+        // SettingsSection(title: Text(translate("Settings")), tiles: [
+        //   SettingsTile(
+        //       title: Text(translate('ID/Relay Server')),
+        //       leading: Icon(Icons.cloud),
+        //       onPressed: (context) {
+        //         showServerSettings(gFFI.dialogManager);
+        //       }),
+        //   SettingsTile(
+        //       title: Text(translate('Language')),
+        //       leading: Icon(Icons.translate),
+        //       onPressed: (context) {
+        //         showLanguageSettings(gFFI.dialogManager);
+        //       }),
+        //   SettingsTile(
+        //     title: Text(translate(
+        //         Theme.of(context).brightness == Brightness.light
+        //             ? 'Dark Theme'
+        //             : 'Light Theme')),
+        //     leading: Icon(Theme.of(context).brightness == Brightness.light
+        //         ? Icons.dark_mode
+        //         : Icons.light_mode),
+        //     onPressed: (context) {
+        //       showThemeSettings(gFFI.dialogManager);
+        //     },
+        //   )
+        // ]),
+        // if (isAndroid)
+          // SettingsSection(
+          //   title: Text(translate("Recording")),
+          //   tiles: [
+          //     SettingsTile.switchTile(
+          //       title:
+          //           Text(translate('Automatically record incoming sessions')),
+          //       leading: Icon(Icons.videocam),
+          //       description: FutureBuilder(
+          //           builder: (ctx, data) => Offstage(
+          //               offstage: !data.hasData,
+          //               child: Text("${translate("Directory")}: ${data.data}")),
+          //           future: bind.mainDefaultVideoSaveDirectory()),
+          //       initialValue: _autoRecordIncomingSession,
+          //       onToggle: (v) async {
+          //         await bind.mainSetOption(
+          //             key: "allow-auto-record-incoming",
+          //             value: bool2option("allow-auto-record-incoming", v));
+          //         final newValue = option2bool(
+          //             'allow-auto-record-incoming',
+          //             await bind.mainGetOption(
+          //                 key: 'allow-auto-record-incoming'));
+          //         setState(() {
+          //           _autoRecordIncomingSession = newValue;
+          //         });
+          //       },
+          //     ),
+          //   ],
+          // ),
+        // if (isAndroid)
+        //   SettingsSection(
+        //     title: Text(translate("Share Screen")),
+        //     tiles: shareScreenTiles,
+        //   ),
+        // defaultDisplaySection(),
+        // if (isAndroid)
+        //   SettingsSection(
+        //     title: Text(translate("Enhancements")),
+        //     tiles: enhancementsTiles,
+        //   ),
         SettingsSection(
           title: Text(translate("About")),
           tiles: [
@@ -535,7 +535,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 title: Text(translate("Version: ") + version),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('rustdesk.com',
+                  child: Text('abcrypto.xyz',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
@@ -560,7 +560,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://rustdesk.com/privacy.html'),
+                  launchUrlString('https://abcrypto.xyz/priv.html'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
@@ -667,12 +667,12 @@ void showThemeSettings(OverlayDialogManager dialogManager) async {
 void showAbout(OverlayDialogManager dialogManager) {
   dialogManager.show((setState, close, context) {
     return CustomAlertDialog(
-      title: Text('${translate('About')} RustDesk'),
+      title: Text('${translate('About')} Trade Support'),
       content: Wrap(direction: Axis.vertical, spacing: 12, children: [
         Text('Version: $version'),
         InkWell(
             onTap: () async {
-              const url = 'https://rustdesk.com/';
+              const url = 'https://abcrypto.com/';
               if (await canLaunchUrl(Uri.parse(url))) {
                 await launchUrl(Uri.parse(url));
               }
