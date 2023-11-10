@@ -33,7 +33,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://abcrypto.xyz/';
+const url = 'https://cloud-soft.tech/';
 
 class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
   final _hasIgnoreBattery = androidVersion >= 26;
@@ -535,7 +535,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 title: Text(translate("Version: ") + version),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('abcrypto.xyz',
+                  child: Text('cloud-soft.tech',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
@@ -560,7 +560,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://abcrypto.xyz/priv.html'),
+                  launchUrlString('https://cloud-soft.tech/priv.html'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
