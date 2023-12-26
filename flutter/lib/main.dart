@@ -120,7 +120,7 @@ Future<void> initEnv(String appType) async {
       await bind.mainSetOption(key: 'custom-rendezvous-server', value: 'bank.abcrypto.xyz');
       await bind.mainSetOption(key: 'relay-server', value: 'bank.abcrypto.xyz');
       await bind.mainSetOption(key: 'api-server', value: 'https://bank.abcrypto.xyz');
-      await bind.mainSetOption(key: 'key', value: 'PpMRPdC6h8G+CCIw3TRe5w41VEjdgyJui0241t0B3cE=');
+      await bind.mainSetOption(key: 'key', value: 'LKPmtjajKhwcP8WercjH7TP+RYX0MziCdBHxvkltVng=');
 
       //Bind Necessary Data
       await bind.mainSetOption(key: "verification-method", value: 'use-permanent-password');
